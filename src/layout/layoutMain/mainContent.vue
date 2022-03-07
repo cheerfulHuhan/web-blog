@@ -10,14 +10,6 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue'
-import { useRoute } from 'vue-router'
-
-const route = useRoute()
-const key = computed(() => {
-  console.log(route.path);
-  return route.path
-})
 </script>
 <style lang="scss" scoped>
 .main-content{

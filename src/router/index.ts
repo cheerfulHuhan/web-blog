@@ -1,6 +1,9 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 const Layout = () => import('@/layout/index.vue')
-const routes: Array<RouteRecordRaw> = [
+export const routes: Array<RouteRecordRaw> = [  {
+  path: '/login',
+  component: () => import(/* webpackChunkName: "login" */ '@/views/login/WebLogin.vue')
+},
   {
     path: "/",
     name: "Layout",
