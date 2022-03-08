@@ -1,6 +1,5 @@
 <template>
   <div class="main-content">
-    <p>123</p>
     <router-view v-slot="{Component, route: _route}">
       <transition name="fade-transform" mode="out-in">
         <component :is="Component" :key="_route.path" />
@@ -16,6 +15,6 @@
   display:flex;
   height:100%;
   width:100%;
-  background-color: red;
+  margin:0 auto;
 }
 </style>

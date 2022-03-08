@@ -25,14 +25,14 @@ router.beforeEach(async(to: RouteLocationNormalized, _: RouteLocationNormalized,
         try {
           if (rolesSettings.openRoles) {
             // 注意：角色必须是一个数组！ 例如: ['admin'] 或 ['developer', 'editor']
-            await store.getInfo()
+          //  await store.getInfo()
             // 获取接口返回的 roles
-            const roles = store.roles
+           // const roles = store.roles
             // 根据角色生成可访问的 routes
-            store.setRoles(roles)
+          //  / store.setRoles(roles)
+         store.setRoles( rolesSettings.defaultRoles)
           } else {
             // 没有开启角色功能，则启用默认角色
-            store.setRoles( rolesSettings.defaultRoles)
             store.setRoles( rolesSettings.defaultRoles)
           }
           // 动态地添加可访问的 routes

@@ -41,7 +41,7 @@ const filterAsyncRoutes = (routes: RouteRecordRaw[], roles: string[]) => {
     routes: [],
     dynamicRoutes: []
   } as IPermissionState),
-actions:{ 
+  actions:{ 
    setRoutes(roles:string[]) {
   let accessedRoutes
   if (roles.includes('admin')) {

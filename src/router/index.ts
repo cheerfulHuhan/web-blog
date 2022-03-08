@@ -20,7 +20,15 @@ export const routes: Array<RouteRecordRaw> = [  {
     },{
       path:'/home',
       name:"Home",
-      component: ()=>import(/* webpackChunkName: "Layout" */"@/views/home/HomeDashabld.vue" ),
+      component: ()=>import(/* webpackChunkName: "home" */"@/views/home/HomeDashabld.vue" ),
+    },{
+      path:'/addTitle',
+      name:'AddTitle',
+      component:()=>import(/*webpachChunkName:'addTitle' */"@/views/edit/AddTitle.vue")
+    },{
+      path:'/viewMd',
+      name:'ViewMd',
+      component:()=>import(/*webpachChunkName:'viewMd' */"@/views/edit/ReviewMd.vue")
     }]
   },
 
