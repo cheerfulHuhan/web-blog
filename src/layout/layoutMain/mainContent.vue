@@ -13,8 +13,9 @@
 <style lang="scss" scoped>
 .main-content{
   display:flex;
-  height:100%;
+  flex:1;
   width:100%;
   margin:0 auto;
+  overflow-y:scroll; 
 }
 </style>

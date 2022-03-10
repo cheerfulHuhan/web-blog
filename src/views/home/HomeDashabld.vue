@@ -1,6 +1,9 @@
 <template>
   <div class="home-content">
-    <el-tabs v-model="activeName" class="demo-tabs" @tab-click="handleClick">
+    <el-tabs 
+      v-model="activeName" 
+      class="demo-tabs" 
+      @tab-click="handleClick">
       <el-tab-pane 
         v-for="item in navList" 
         :key="item.name" 
@@ -8,7 +11,7 @@
         :name="item.name">
         <div class="main-content">
           <div class="main">
-            主页
+            <TitleItem v-model:title-list="titleList" />
           </div>
           <div class="side">
             侧边栏
@@ -20,8 +23,9 @@
   </div>
 </template>
 <script lang="ts" setup>
-import Layout from '@/layout/index.vue'
 import { ref } from 'vue';
+import TitleItem from './components/TitleItem.vue'
+import {TitleItemType}from './components/TitleItem.vue'
 interface tabItemType{
   label:string
   name:string|number
@@ -42,17 +46,82 @@ const navList=ref<tabItemType[]>([{
   label:'Android',
   name:5
 }])
+  const titleList=ref<TitleItemType[]>([{
+    id:4,
+    name:'作者',
+    time:'1天',
+    tabs:['前端',"node"],
+    title:'文章',
+    describe:'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
+    eye:1,
+    good:2,
+    discuss2e:2
+  },{
+    id:1,
+    name:'作者',
+    time:'1天',
+    tabs:['前端',"node"],
+    title:'文章',
+    describe:'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
+    eye:1,
+    good:2,
+    discuss2e:2
+  },{
+    id:2,
+    name:'作者',
+    time:'1天',
+    tabs:['前端',"node"],
+    title:'文章',
+    describe:'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
+    eye:1,
+    good:2,
+    discuss2e:2
+  },
+  {
+    id:6,
+    name:'作者',
+    time:'1天',
+    tabs:['前端',"node"],
+    title:'文章',
+    describe:'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
+    eye:1,
+    good:2,
+    discuss2e:2
+  },{
+    id:2,
+    name:'作者',
+    time:'1天',
+    tabs:['前端',"node"],
+    title:'文章',
+    describe:'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
+    eye:1,
+    good:2,
+    discuss2e:2
+  },
+  {
+    id:6,
+    name:'作者',
+    time:'1天',
+    tabs:['前端',"node"],
+    title:'文章',
+    describe:'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
+    eye:1,
+    good:2,
+    discuss2e:2
+  }])
+  
 const handleClick = (tab: string, event: Event) => {
   console.log(tab, event)
 }
 const activeName = ref(navList.value[0].name)
+
 </script>
 <style lang="scss" scoped>
 .home-content{
+  display: flex;
   width: 100%;
 .demo-tabs {
   width: 100%;
-  height: 100%;
   text-align: center;
  .el-tabs__content {
   padding: 32px;
@@ -69,9 +138,9 @@ const activeName = ref(navList.value[0].name)
   .main{
     flex: 4;
     height: 100%;
-    background-color: red;
   }
   .side{
+    position: static;
     flex:1.5;
     height: 100%;
     margin-left: 10px;

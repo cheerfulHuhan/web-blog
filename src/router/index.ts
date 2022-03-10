@@ -29,6 +29,14 @@ export const routes: Array<RouteRecordRaw> = [  {
       path:'/viewMd',
       name:'ViewMd',
       component:()=>import(/*webpachChunkName:'viewMd' */"@/views/edit/ReviewMd.vue")
+    },{
+      path:'/person/:theme',
+      name:'Person',
+      component:()=>import(/*webpachChunkName:'person' */"@/views/person/PersonHome.vue")
+    },{
+      path:'/register',
+      name:'Register',
+      component:()=>import(/**webpachChunkName:'register' */ "@/views/register/RegisterUser.vue")
     }]
   },
 
