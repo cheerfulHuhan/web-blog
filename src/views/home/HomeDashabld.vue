@@ -25,7 +25,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import TitleItem from './components/TitleItem.vue'
-import {TitleItemType}from './components/TitleItem.vue'
+import {TitleItemType}from './components/types/index'
 interface tabItemType{
   label:string
   name:string|number
@@ -55,7 +55,16 @@ const navList=ref<tabItemType[]>([{
     describe:'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
     eye:1,
     good:2,
-    discuss2e:2
+    discuss2e:2,
+    userInfo:{
+      id:20,
+      name:'作者',
+      avatar:'@/assets/logo.png',
+      followNum:1,
+      wasFollowNum:30,
+      introduce:'懒人'
+
+    }
   },{
     id:1,
     name:'作者',

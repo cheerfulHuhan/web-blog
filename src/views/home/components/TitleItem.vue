@@ -4,7 +4,39 @@
     :key="item.id"
     class="title-content">
     <div class="head">
-      <span>{{ item.name }}|</span>
+      <el-popover
+        placement="top-start"
+        :width="300"
+        trigger="hover"
+      >
+        <template #reference>
+          <span>{{ item.name }}|</span>
+        </template>
+        <div class="user-content">
+          <div class="header">
+            <img class="avatar" src="" alt="">
+            <div class="userIntroduce">
+              <p>name</p>
+              <p>描述</p>
+            </div>
+          </div>
+          <div class="follow">
+            <div>
+              <p>关注者</p>
+              <p>0</p>
+            </div>
+            <div>
+              <p>关注者</p>
+              <p>0</p>
+            </div>
+            <div>
+              <el-button type="primary">
+                关注
+              </el-button>
+            </div>
+          </div>
+        </div>
+      </el-popover>
       <span>{{ item.time }}|</span>
       <span v-for="tab in item.tabs " :key="tab"><a>{{ tab }}.</a></span>
     </div>
@@ -25,18 +57,7 @@
 </template>
 <script lang="ts" setup>
 import { computed, PropType } from 'vue';
-export interface TitleItemType{
-  id:number
-  name:string
-  time:string
-  tabs?:string[]
-  title:string
-  describe:string
-  img?:string
-  eye:number
-  good:number
-  discuss2e:number
-}
+import {TitleItemType} from "../components/types/index"
   const props=defineProps({
     titleList:{
       type:Array as PropType<TitleItemType[]>,
@@ -57,6 +78,28 @@ export interface TitleItemType{
   text-align: left ;
   overflow: hidden;
   border: 1px solid rgb(228, 231, 237);
+  .user-content{
+    display: flex;
+    width: 100%;
+    text-align: center;
+    .header{
+      width: 100%;
+      display: flex;
+      .avator{
+        flex: 1;
+        height: 100px;
+        padding: 10px;
+        border-radius: 50% 50%;
+        background-color: red;
+        background-position: center;
+        background-repeat: no-repeat;
+
+      }
+      .userIntroduce{
+        flex: 1;
+      }
+    }
+  }
   .title-main{
     display: flex;
     height: 120px;

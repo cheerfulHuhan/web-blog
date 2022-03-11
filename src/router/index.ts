@@ -33,11 +33,11 @@ export const routes: Array<RouteRecordRaw> = [  {
       path:'/person/:theme',
       name:'Person',
       component:()=>import(/*webpachChunkName:'person' */"@/views/person/PersonHome.vue")
-    },{
-      path:'/register',
-      name:'Register',
-      component:()=>import(/**webpachChunkName:'register' */ "@/views/register/RegisterUser.vue")
     }]
+  },{
+    path:'/register',
+    name:'Register',
+    component:()=>import(/**webpachChunkName:'register' */ "@/views/register/RegisterUser.vue")
   },
 
 ];
