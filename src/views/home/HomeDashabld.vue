@@ -24,8 +24,8 @@
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue';
-import TitleItem from './components/TitleItem.vue'
-import {TitleItemType}from './components/types/index'
+import TitleItem from '../../components/TitleItem/TitleItem.vue'
+import {TitleItemType} from '@/components/TitleItem/types/index'
 interface tabItemType{
   label:string
   name:string|number
@@ -62,7 +62,8 @@ const navList=ref<tabItemType[]>([{
       avatar:'@/assets/logo.png',
       followNum:1,
       wasFollowNum:30,
-      introduce:'懒人'
+      introduce:'懒人',
+      fwStatus:false
 
     }
   },{

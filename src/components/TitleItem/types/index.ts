@@ -5,11 +5,13 @@ export interface userInfoType{
   introduce:string
   followNum:number
   wasFollowNum:number
+  fwStatus:boolean
+
 }
 export interface TitleItemType{
   id:number
   name:string
-  time:string
+  time?:string
   tabs?:string[]
   title:string
   describe:string
@@ -18,4 +20,5 @@ export interface TitleItemType{
   good:number
   discuss2e:number
   userInfo?:userInfoType
+  switchInfo?:boolean
 }

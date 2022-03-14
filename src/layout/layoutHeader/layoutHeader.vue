@@ -53,7 +53,7 @@
             </router-link>
           </el-dropdown-item>
           <el-dropdown-item>
-            <router-link to="/person/person">
+            <router-link to="/person/title">
               <el-icon style="vertical-align: middle;">
                 <User />
               </el-icon>
@@ -61,7 +61,7 @@
             </router-link>
           </el-dropdown-item>
           <el-dropdown-item>
-            <router-link to="/person/star">
+            <router-link to="/person/collect">
               <el-icon style="vertical-align: middle;">
                 <Star />
               </el-icon>
