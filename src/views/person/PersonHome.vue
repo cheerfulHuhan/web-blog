@@ -21,7 +21,7 @@
             <span>关注了</span><span>&nbsp;&nbsp;(2)</span>
           </span>
         </template>
-        <div>关注</div>
+        <UserInfoItem :userInfoList="userInfoList" />
       </el-tab-pane>
       <el-tab-pane name="wasFollow">
         <template #label>
@@ -29,17 +29,18 @@
             <span>关注者</span><span>&nbsp;&nbsp;(2)</span>
           </span>
         </template>
+        <UserInfoItem :userInfoList="userInfoList" />
       </el-tab-pane>
     </el-tabs>
   </div>
 </template>
 <script lang="ts" setup>
 import TitleItem from '../../components/TitleItem/TitleItem.vue'
-import {TitleItemType,userInfoType} from '@/components/TitleItem/types/index.ts'
+import {TitleItemType,userInfoType} from '@/components/TitleItem/types/index'
 import PersonInfo  from '@/components/personInfo/index.vue'
 import { onMounted, ref } from 'vue'
 import {useRoute} from 'vue-router'
-
+import UserInfoItem from './components/UserInfoItem.vue'
 const activeName = ref<string|string[]>('title')
 const route=useRoute()
   const titleList=ref<TitleItemType[]>([{
@@ -52,7 +53,6 @@ const route=useRoute()
     eye:1,
     good:2,
     discuss2e:2,
-    switchInfo:false,
     userInfo:{
       id:20,
       name:'作者',
@@ -120,7 +120,11 @@ const route=useRoute()
      switchInfo:false,
     discuss2e:2
   }])
-  
+const userInfoList=ref<userInfoType[]>([
+  {id:5,name:'hahah',avatar:'@/assets/logo.png',introduce:'sssssss',fwStatus:true},
+  {id:6,name:'hahah',avatar:'@/assets/logo.png',introduce:'sssssss',fwStatus:true}
+])
+
 const handleClick = (tab: any) => {
   activeName.value=tab.props.name
 }
@@ -140,7 +144,7 @@ onMounted(()=>{
   display:flex;
   flex-direction:column;
   height:100%;
-  width:60%;
+  width:50%;
   margin:0 auto;
   overflow-y: scroll;
   .el-tabs{

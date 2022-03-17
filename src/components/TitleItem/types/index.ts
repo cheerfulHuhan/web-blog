@@ -2,10 +2,11 @@ export interface userInfoType{
   id:number
   name:string
   avatar:string
-  introduce:string
+  introduce?:string
+  tabs?:string[]
   followNum:number
-  wasFollowNum:number
-  fwStatus:boolean
+  wasFollowNum?:number
+  fwStatus?:boolean
 
 }
 export interface TitleItemType{

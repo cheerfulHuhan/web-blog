@@ -56,6 +56,7 @@ const navList=ref<tabItemType[]>([{
     eye:1,
     good:2,
     discuss2e:2,
+    switchInfo:true,
     userInfo:{
       id:20,
       name:'作者',
@@ -75,7 +76,8 @@ const navList=ref<tabItemType[]>([{
     describe:'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
     eye:1,
     good:2,
-    discuss2e:2
+    discuss2e:2,
+    switchInfo:true,
   },{
     id:2,
     name:'作者',

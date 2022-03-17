@@ -68,6 +68,14 @@
               <span>我的收藏</span>
             </router-link>
           </el-dropdown-item>
+          <el-dropdown-item>
+            <router-link to="/editUserInfo">
+              <el-icon style="vertical-align: middle;">
+                <Avatar />
+              </el-icon>
+              <span>编辑个人资料</span>
+            </router-link>
+          </el-dropdown-item>
         </el-dropdown-menu>
       </template>
     </el-dropdown>
@@ -75,7 +83,7 @@
 </template>
 
 <script lang="ts" setup>
-import { Search,Edit,EditPen,User,Star, } from '@element-plus/icons-vue'
+import { Search,Edit,EditPen,User,Star,Avatar } from '@element-plus/icons-vue'
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 const searchValue=ref<string>("")

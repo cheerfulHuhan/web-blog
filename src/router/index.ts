@@ -33,6 +33,10 @@ export const routes: Array<RouteRecordRaw> = [  {
       path:'/person/:theme',
       name:'Person',
       component:()=>import(/*webpachChunkName:'person' */"@/views/person/PersonHome.vue")
+    },{
+      path:'/editUserInfo',
+      name:'EditUserInfo',
+      component:()=>import(/*webpachChunkName:'editUserInfo' */"@/views/person/EditUserInfo.vue")
     }]
   },{
     path:'/register',
