@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
+import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
 const Layout = () => import('@/layout/index.vue')
 export const routes: Array<RouteRecordRaw> = [  {
   path: '/login',
@@ -47,7 +47,7 @@ export const routes: Array<RouteRecordRaw> = [  {
 ];
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHashHistory(),
   routes,
 });
 

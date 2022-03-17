@@ -23,8 +23,8 @@ const handleChange=(v:any) =>{
   <v-md-editor
     v-model="text"
     height="100%"
-    default-fullscreen="true"
     @save="saveText" />
+    <!-- default-fullscreen="true"  默认全屏-->
 </template>
 
 <script lang="ts" setup>

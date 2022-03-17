@@ -5,7 +5,6 @@ import '@/styles/index.scss'
 import 'normalize.css'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
-import { loadAllPlugins } from './plugins'
 //app.js
 import { createPinia } from 'pinia'
 import '@/router/permission'

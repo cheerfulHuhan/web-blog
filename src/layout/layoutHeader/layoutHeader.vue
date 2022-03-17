@@ -38,7 +38,9 @@
       </el-icon>
       <span>注册用户</span>
     </el-button>
-    <el-dropdown>
+    <el-dropdown
+      trigger="click"
+    >
       <span class="el-dropdown-link">
         <img class="head" src="@/assets/logo.png" alt="">
       </span>
@@ -145,5 +147,11 @@ const jumpWrite=(path:string,params?:any)=>{
   display: flex;
   align-items: center;
 }
+}
+.el-dropdown-menu{
+  a{
+    display: block;
+    width: 100%;
+  }
 }
 </style>
