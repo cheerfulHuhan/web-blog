@@ -1,30 +1,8 @@
-<!-- <template>
-  <Editor :value="value" :plugins="plugins" @change="handleChange" />
-</template> -->
-
-<!-- <script lang="ts" setup>
-import { Editor, Viewer } from '@bytemd/vue'
-import gfm from '@bytemd/plugin-gfm'
-import { ref } from 'vue'
-
-const plugins = [
-  gfm(),
-  // Add more plugins here
-]
-const value=ref('')
-
-
-const handleChange=(v:any) =>{
-      value.value=v
-    }
-
-</script> -->
 <template>
   <v-md-editor
     v-model="text"
     height="100%"
     @save="saveText" />
-    <!-- default-fullscreen="true"  默认全屏-->
 </template>
 
 <script lang="ts" setup>
@@ -38,4 +16,5 @@ import { ElMessage } from 'element-plus';
         md.setText(text.value)
         ElMessage.success("保存成功")
       }
+
 </script>

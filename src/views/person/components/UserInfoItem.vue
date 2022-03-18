@@ -1,6 +1,6 @@
 <template>
   <div
-    v-for="item in userInfoList"
+    v-for="item in props.userInfoList"
     :key="item.id"
     class="userInfo-item-content">
     <div class="userInfo-content">
@@ -16,11 +16,11 @@
   </div>
 </template>
 <script lang="ts" setup>
-  import {userInfoType} from '@/components/TitleItem/types/index'
+  import {userInfoType} from '@/components/TitleItem/types'
 import { PropType } from 'vue';
   const props=defineProps({
     userInfoList:{
-      type:[] as PropType<userInfoType[]>,
+      type:Array as PropType<userInfoType[]>,
       required:true
     }
   })

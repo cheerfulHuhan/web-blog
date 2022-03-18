@@ -35,12 +35,12 @@
   </div>
 </template>
 <script lang="ts" setup>
-import TitleItem from '../../components/TitleItem/TitleItem.vue'
-import {TitleItemType,userInfoType} from '@/components/TitleItem/types/index'
+import TitleItem from '../../components/TitleItem/TitleItem.vue';
 import PersonInfo  from '@/components/personInfo/index.vue'
 import { onMounted, ref } from 'vue'
 import {useRoute} from 'vue-router'
 import UserInfoItem from './components/UserInfoItem.vue'
+import {TitleItemType,userInfoType} from '../../components/TitleItem/types';
 const activeName = ref<string|string[]>('title')
 const route=useRoute()
   const titleList=ref<TitleItemType[]>([{

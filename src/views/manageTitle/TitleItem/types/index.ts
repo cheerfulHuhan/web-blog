@@ -23,3 +23,8 @@ export interface TitleItemType{
   userInfo?:userInfoType
   switchInfo?:boolean
 }
+export enum manageTitleStatus{
+  STATUS_SUCCESS=1, //成功发布的文章
+  STATUS_APPROVE=2, //正在审批的文章
+  STATUS_FAIL=0 //审批失败的文章
+}

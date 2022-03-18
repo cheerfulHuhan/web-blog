@@ -37,6 +37,10 @@ export const routes: Array<RouteRecordRaw> = [  {
       path:'/editUserInfo',
       name:'EditUserInfo',
       component:()=>import(/*webpachChunkName:'editUserInfo' */"@/views/person/EditUserInfo.vue")
+    },{
+      path:'manageTitle',
+      name:'ManageTitle',
+      component:()=>import(/*webpachChunkName:'manageTitle' */ "@/views/manageTitle/manageTitle.vue")
     }]
   },{
     path:'/register',

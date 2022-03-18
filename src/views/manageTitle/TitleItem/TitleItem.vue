@@ -3,41 +3,33 @@
     v-for="item in titleList"
     :key="item.id"
     class="title-content">
-    <div v-if="item.switchInfo" class="head">
-      <el-popover
-        placement="top-start"
-        :width="300"
-        trigger="hover"
-      >
-        <template #reference>
-          <span>{{ item.name }}|</span>
-        </template>
-        <div class="user-content">
-          <div class="header">
-            <img class="avatar" src="@/assets/logo.png" alt="">
-            <div class="userIntroduce">
-              <p>name</p>
-              <p>描述</p>
-            </div>
-          </div>
-          <div class="follow">
-            <div>
-              <p>关注者</p>
-              <p>0</p>
-            </div>
-            <div style="margin-left:20px;">
-              <p>关注者</p>
-              <p>0</p>
-            </div>
-            <el-button style="margin: 20px auto ;">
-              关注
-            </el-button>
-          </div>
-        </div>
-      </el-popover>
-      <span>{{ item.time }}|</span>
-      <span v-for="tab in item.tabs " :key="tab"><a>{{ tab }}.</a></span>
-    </div>
+    <el-dropdown style="float: right;">
+      <slot />
+
+      <template #dropdown>
+        <el-dropdown-menu>
+          <el-dropdown-item>
+            <el-icon class="el-icon--right">
+              <Edit />
+            </el-icon>
+            编辑
+          </el-dropdown-item>
+          <el-dropdown-item>
+            <el-icon class="el-icon--right">
+              <Delete />
+            </el-icon>
+            删除
+          </el-dropdown-item>
+          <el-dropdown-item
+            v-if="titleType===manageTitleStatus.STATUS_FAIL">
+            <el-icon class="el-icon--right">
+              <Upload />
+            </el-icon>
+            重新提交
+          </el-dropdown-item>
+        </el-dropdown-menu>
+      </template>
+    </el-dropdown>
     <div class="title-main">
       <div class="describe">
         <h3>{{ item.title }}</h3>
@@ -45,7 +37,7 @@
         >
           {{ item.describe }}
         </p>
-        <p class="operate">
+        <p v-if="titleType===manageTitleStatus.STATUS_SUCCESS" class="operate">
           <span><svg-icon name="eye" />   {{ item.eye }}</span><span><svg-icon name="good" />   {{ item.good }}</span><span><svg-icon name="discuss2e" />   {{ item.discuss2e }}</span>
         </p> 
       </div>
@@ -55,14 +47,20 @@
 </template>
 <script lang="ts" setup>
 import { computed, PropType } from 'vue';
-import {TitleItemType} from "../TitleItem/types"
+import {TitleItemType,manageTitleStatus} from "../TitleItem/types"
+import {Delete,Edit,Upload} from '@element-plus/icons-vue'
   const props=defineProps({
     titleList:{
       type:Array as PropType<TitleItemType[]>,
-    required:true,
-    default:()=>{
+      required:true,
+      default:()=>{
       return []
     }
+    },
+    titleType:{
+      type:Number,
+      required:false,
+      default:manageTitleStatus.STATUS_SUCCESS
     }
   })
   const titleList=computed(()=>{
@@ -108,6 +106,12 @@ import {TitleItemType} from "../TitleItem/types"
       background-color: blue;
     }
   }
+    .example-showcase .el-dropdown-link {
+      cursor: pointer;
+      color: var(--el-color-primary);
+      display: flex;
+      align-items: center;
+    }
 }
   .user-content{
     display: flex;

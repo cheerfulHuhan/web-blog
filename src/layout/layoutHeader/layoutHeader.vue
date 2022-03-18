@@ -39,13 +39,21 @@
       <span>注册用户</span>
     </el-button>
     <el-dropdown
-      trigger="click"
     >
-      <span class="el-dropdown-link">
-        <img class="head" src="@/assets/logo.png" alt="">
+      <span v-if="user.id" class="el-dropdown-link">
+        <img class="head" :src="user.avatar" alt="">
       </span>
-      <template #dropdown>
-        <el-dropdown-menu>
+      <el-button v-else type="primary" @click="jumpWrite('/login')">
+        登录
+      </el-button>
+      <template v-if="user.id" #dropdown>
+        <el-dropdown-menu
+        >
+          <el-dropdown-item>
+            <h3 style="margin: 10px 0;">
+              {{ user.name }}
+            </h3>
+          </el-dropdown-item>
           <el-dropdown-item>
             <router-link to="/addTitle">
               <el-icon style="vertical-align: middle;">
@@ -78,6 +86,21 @@
               <span>编辑个人资料</span>
             </router-link>
           </el-dropdown-item>
+          <el-dropdown-item>
+            <router-link to="/manageTitle">
+              <el-icon style="vertical-align: middle;">
+                <List />
+              </el-icon>
+              <span>文章管理</span>
+            </router-link>
+          </el-dropdown-item>
+          <el-dropdown-item>
+            <a @click="loginOut"> 
+              <el-icon style="vertical-align: middle;">
+                <Back />
+              </el-icon>             
+              <span>退出登录</span></a>
+          </el-dropdown-item>
         </el-dropdown-menu>
       </template>
     </el-dropdown>
@@ -85,15 +108,20 @@
 </template>
 
 <script lang="ts" setup>
-import { Search,Edit,EditPen,User,Star,Avatar } from '@element-plus/icons-vue'
+import { Search,Edit,EditPen,User,Star,Avatar,Back ,List} from '@element-plus/icons-vue'
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
+import {userInfo} from '@/stores/user'
+const user=userInfo()
 const searchValue=ref<string>("")
 const route=useRouter()
 const jumpWrite=(path:string,params?:any)=>{
   route.push({
     path:path
   })
+}
+const loginOut=()=>{
+  user.loginOut(),user.resetToken()
 }
 </script>
 

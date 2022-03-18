@@ -5,10 +5,10 @@ import { getToken, removeToken, setToken } from '@/utils/cookies'
 export const userInfo = defineStore({
   id: 'todo',
   state: () => ({ 
-    id:'',
+    id:'45',
     token:getToken() ||'',
     avatar:require('@/assets/logo.png'),
-    name:'',
+    name:'石志康小jb',
     roles:[],
     introduce:'',
     interest:[],
@@ -54,12 +54,21 @@ export const userInfo = defineStore({
     this.$patch({
       emil:emil
     })
+  },
+  setId(id:string){
+    this.$patch({
+      id:id
+    })
   },loginOut(){
     this.$patch({
+      id:'',
       name:'',
       roles:[],
       avatar:'',
-      token:''
+      token:'',
+      introduce:'',
+      interest:[],
+      emil:'',
     })
   },
   login( userInfo: { username: string, password: string }) {
@@ -92,6 +101,7 @@ export const userInfo = defineStore({
           this.setEmil(res.data.user.emil)
           this.setInterest(res.data.user.interest)
           this.setIntroduce(res.data.introduce)
+          this.setId(res.data.user.id)
           resolve(res)
         })
         .catch((error) => {

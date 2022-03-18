@@ -31,9 +31,13 @@
             <el-form-item prop="autoLogin">
               <el-checkbox v-model="formField.whetherAutoLogin" style="color: black;" label="自动登陆" />
             </el-form-item>
+            <router-link to="/register">
+              没有账号，前去注册
+            </router-link>
           </el-form>
-          <el-button type="primary" @click="submitForm">
-            登录
+
+          <el-button style="margin-top:20px;" type="primary" @click="submitForm">
+            登录 
           </el-button>
         </div>
       </div>
@@ -51,8 +55,7 @@
   import _ from 'lodash'
   import { ElMessage } from 'element-plus'
   import {userInfo} from '@/stores/user'
-import { useRouter } from 'vue-router'
-
+  import { useRouter } from 'vue-router'
   export default defineComponent({
     setup() {
       // 容器
@@ -512,7 +515,11 @@ import { useRouter } from 'vue-router'
         if (!form) return
         form.validate(async(valid: any) => {
           if (valid) {
+            storeUser.setId('ssdfsf')
+           storeUser.setAvatar(require('@/assets/logo.png'))
+           storeUser.setName('石志康小jb')
           await  submitHandle()
+
           router.push('/Home')
           } else {
             ElMessage.warning({
