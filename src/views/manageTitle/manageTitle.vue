@@ -3,12 +3,12 @@
     <el-tabs
       v-model="activeName"
       type="card"
-      class="demo-tabs"
+      class="demo-tab"
       @tab-click="handleClick"
     >
       <el-tab-pane name="title">
         <template #label>
-          <span class="custom-tabs-label">
+          <span class="custom-tab-label">
             <span>文章({{ titleStatusNum.success }})</span>
           </span>
         </template>
@@ -25,7 +25,7 @@
       </el-tab-pane>
       <el-tab-pane name="approval">
         <template #label>
-          <span class="custom-tabs-label">
+          <span class="custom-tab-label">
             <span>审批中({{ titleStatusNum.approveIng }})</span>
           </span>
         </template>
@@ -35,7 +35,7 @@
       </el-tab-pane>
       <el-tab-pane name="notApproval">
         <template #label>
-          <span class="custom-tabs-label">
+          <span class="custom-tab-label">
             <span>审批失败({{ titleStatusNum.fail }})</span>
           </span>
         </template>
@@ -63,7 +63,7 @@ import {Expand} from '@element-plus/icons-vue'
     id:4,
     name:'作者',
     time:'1天',
-    tabs:['前端',"node"],
+    tab:['前端',"node"],
     title:'文章',
     describe:'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
     eye:1,
@@ -84,7 +84,7 @@ import {Expand} from '@element-plus/icons-vue'
     id:1,
     name:'作者',
     time:'1天',
-    tabs:['前端',"node"],
+    tab:['前端',"node"],
     title:'文章',
     describe:'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
     eye:1,
@@ -95,7 +95,7 @@ import {Expand} from '@element-plus/icons-vue'
     id:2,
     name:'作者',
     time:'1天',
-    tabs:['前端',"node"],
+    tab:['前端',"node"],
     title:'文章',
     describe:'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
     eye:1,
@@ -106,7 +106,7 @@ import {Expand} from '@element-plus/icons-vue'
     id:6,
     name:'作者',
     time:'1天',
-    tabs:['前端',"node"],
+    tab:['前端',"node"],
     title:'文章',
     describe:'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
     eye:1,
@@ -116,7 +116,7 @@ import {Expand} from '@element-plus/icons-vue'
     id:2,
     name:'作者',
     time:'1天',
-    tabs:['前端',"node"],
+    tab:['前端',"node"],
     title:'文章',
     describe:'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
     eye:1,
@@ -127,7 +127,7 @@ import {Expand} from '@element-plus/icons-vue'
     id:6,
     name:'作者',
     time:'1天',
-    tabs:['前端',"node"],
+    tab:['前端',"node"],
     title:'文章',
     describe:'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
     eye:1,
@@ -150,7 +150,7 @@ const titleStatusNum=reactive({
 .mange-content{
   margin:0 auto;
   width: 40%;
-  .demo-tabs > .el-tabs__content {
+  .demo-tab > .el-tabs__content {
     padding: 32px;
     color: #6b778c;
     font-size: 32px;

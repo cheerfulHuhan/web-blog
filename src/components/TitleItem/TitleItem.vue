@@ -2,7 +2,7 @@
   <div
     v-for="item in titleList"
     :key="item.id"
-    class="title-content">
+    class="title-content" @click="viewTitle(item.id)">
     <div v-if="item.switchInfo" class="head">
       <el-popover
         placement="top-start"
@@ -10,7 +10,7 @@
         trigger="hover"
       >
         <template #reference>
-          <span>{{ item.name }}|</span>
+          <span @click.stop="viewUser(item.id,'title')">{{ item.name }}&nbsp;&nbsp;&nbsp;|</span>
         </template>
         <div class="user-content">
           <div class="header">
@@ -35,8 +35,8 @@
           </div>
         </div>
       </el-popover>
-      <span>{{ item.time }}|</span>
-      <span v-for="tab in item.tabs " :key="tab"><a>{{ tab }}.</a></span>
+      <span>{{ item.time }}&nbsp;&nbsp;&nbsp;|</span>
+      <span>{{ item.tab }}</span>
     </div>
     <div class="title-main">
       <div class="describe">
@@ -56,6 +56,8 @@
 <script lang="ts" setup>
 import { computed, PropType } from 'vue';
 import {TitleItemType} from "../TitleItem/types"
+import {useViewTitle} from '@/hooks/useViewTitle'
+const {viewTitle} =useViewTitle()
   const props=defineProps({
     titleList:{
       type:Array as PropType<TitleItemType[]>,
@@ -65,9 +67,14 @@ import {TitleItemType} from "../TitleItem/types"
     }
     }
   })
+  const emit=defineEmits(['getUserId'])
   const titleList=computed(()=>{
     return props.titleList
   })
+  const viewUser=(id:number,theme:string)=>{
+    emit('getUserId',{id,theme})
+  }
+
 </script>
 <style lang="scss" scoped>
 .title-content{
@@ -106,6 +113,15 @@ import {TitleItemType} from "../TitleItem/types"
       background-repeat: no-repeat;
       background-position-y: center;
       background-color: blue;
+    }
+  }
+  .head{
+    span{
+      margin-right: 10px;
+    }
+    .el-tooltip__trigger:hover{
+      cursor: pointer;
+      color:blue;
     }
   }
 }

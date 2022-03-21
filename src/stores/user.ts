@@ -5,7 +5,7 @@ import { getToken, removeToken, setToken } from '@/utils/cookies'
 export const userInfo = defineStore({
   id: 'todo',
   state: () => ({ 
-    id:'45',
+    id:2,
     token:getToken() ||'',
     avatar:require('@/assets/logo.png'),
     name:'石志康小jb',

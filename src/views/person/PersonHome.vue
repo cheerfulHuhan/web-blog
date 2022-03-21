@@ -6,7 +6,7 @@
     <el-tabs
       v-model="activeName"
       type="card"
-      class="demo-tabs"
+      class="demo-tab"
       @tab-click="handleClick"
     >
       <el-tab-pane label="文章" name="title">
@@ -17,7 +17,7 @@
       </el-tab-pane>
       <el-tab-pane name="follow">
         <template #label>
-          <span class="custom-tabs-label">
+          <span class="custom-tab-label">
             <span>关注了</span><span>&nbsp;&nbsp;(2)</span>
           </span>
         </template>
@@ -25,7 +25,7 @@
       </el-tab-pane>
       <el-tab-pane name="wasFollow">
         <template #label>
-          <span class="custom-tabs-label">
+          <span class="custom-tab-label">
             <span>关注者</span><span>&nbsp;&nbsp;(2)</span>
           </span>
         </template>
@@ -47,7 +47,7 @@ const route=useRoute()
     id:4,
     name:'作者',
     time:'1天',
-    tabs:['前端',"node"],
+    tab:'前端',
     title:'文章',
     describe:'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
     eye:1,
@@ -66,7 +66,7 @@ const route=useRoute()
     id:1,
     name:'作者',
     time:'1天',
-    tabs:['前端',"node"],
+    tab:'前端',
     title:'文章',
     describe:'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
     eye:1,
@@ -77,7 +77,7 @@ const route=useRoute()
     id:2,
     name:'作者',
     time:'1天',
-    tabs:['前端',"node"],
+    tab:'前端',
     title:'文章',
     describe:'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
     eye:1,
@@ -89,7 +89,7 @@ const route=useRoute()
     id:6,
     name:'作者',
     time:'1天',
-    tabs:['前端',"node"],
+    tab:'前端',
     title:'文章',
     describe:'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
     eye:1,
@@ -100,7 +100,7 @@ const route=useRoute()
     id:2,
     name:'作者',
     time:'1天',
-    tabs:['前端',"node"],
+    tab:'前端',
     title:'文章',
     describe:'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
     eye:1,
@@ -112,7 +112,7 @@ const route=useRoute()
     id:6,
     name:'作者111',
     time:'1天',
-    tabs:['前端',"node"],
+    tab:'前端',
     title:'文章',
     describe:'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
     eye:1,
@@ -150,7 +150,7 @@ onMounted(()=>{
   .el-tabs{
     flex:1;
   }
-.demo-tabs > .el-tabs__content {
+.demo-tab > .el-tabs__content {
   padding: 32px;
   width:100%;
   color: #6b778c;

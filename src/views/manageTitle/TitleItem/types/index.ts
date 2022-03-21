@@ -3,7 +3,7 @@ export interface userInfoType{
   name:string
   avatar:string
   introduce?:string
-  tabs?:string[]
+  tab?:string[]
   followNum?:number
   wasFollowNum?:number
   fwStatus?:boolean
@@ -13,7 +13,7 @@ export interface TitleItemType{
   id:number
   name:string
   time?:string
-  tabs?:string[]
+  tab?:string[]
   title:string
   describe:string
   img?:string

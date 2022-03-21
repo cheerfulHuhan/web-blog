@@ -1,5 +1,5 @@
 interface userType{
-  id:string
+  id:string|number
   token: string
   name: string
   avatar: string

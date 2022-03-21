@@ -2,7 +2,7 @@
   <div class="home-content">
     <el-tabs 
       v-model="activeName" 
-      class="demo-tabs" 
+      class="demo-tab" 
       @tab-click="handleClick">
       <el-tab-pane 
         v-for="item in navList" 
@@ -11,7 +11,7 @@
         :name="item.name">
         <div class="main-content">
           <div class="main">
-            <TitleItem v-model:title-list="titleList" />
+            <TitleItem v-model:title-list="titleList" @get-user-id="transportId" />
           </div>
           <div class="side">
             侧边栏
@@ -26,10 +26,12 @@
 import { ref } from 'vue';
 import TitleItem from '../../components/TitleItem/TitleItem.vue'
 import {TitleItemType} from '@/components/TitleItem/types/index'
+import {viewUserInfo} from '@/hooks/viewUserInfo'
 interface tabItemType{
   label:string
   name:string|number
 }
+const {transportId} =viewUserInfo()
 const navList=ref<tabItemType[]>([{
   label:'前端',
   name:1
@@ -50,7 +52,7 @@ const navList=ref<tabItemType[]>([{
     id:4,
     name:'作者',
     time:'1天',
-    tabs:['前端',"node"],
+    tab:"前端",
     title:'文章',
     describe:'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
     eye:1,
@@ -71,7 +73,7 @@ const navList=ref<tabItemType[]>([{
     id:1,
     name:'作者',
     time:'1天',
-    tabs:['前端',"node"],
+    tab:"前端",
     title:'文章',
     describe:'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
     eye:1,
@@ -82,7 +84,7 @@ const navList=ref<tabItemType[]>([{
     id:2,
     name:'作者',
     time:'1天',
-    tabs:['前端',"node"],
+    tab:"前端",
     title:'文章',
     describe:'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
     eye:1,
@@ -93,7 +95,7 @@ const navList=ref<tabItemType[]>([{
     id:6,
     name:'作者',
     time:'1天',
-    tabs:['前端',"node"],
+    tab:"前端",
     title:'文章',
     describe:'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
     eye:1,
@@ -103,7 +105,7 @@ const navList=ref<tabItemType[]>([{
     id:2,
     name:'作者',
     time:'1天',
-    tabs:['前端',"node"],
+    tab:"前端",
     title:'文章',
     describe:'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
     eye:1,
@@ -114,7 +116,7 @@ const navList=ref<tabItemType[]>([{
     id:6,
     name:'作者',
     time:'1天',
-    tabs:['前端',"node"],
+    tab:"前端",
     title:'文章',
     describe:'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
     eye:1,
@@ -132,7 +134,7 @@ const activeName = ref(navList.value[0].name)
 .home-content{
   display: flex;
   width: 100%;
-.demo-tabs {
+.demo-tab {
   width: 100%;
   text-align: center;
  .el-tabs__content {
