@@ -50,15 +50,12 @@ const navList=ref<tabItemType[]>([{
 }])
   const titleList=ref<TitleItemType[]>([{
     id:4,
-    name:'作者',
-    time:'1天',
     tab:"前端",
     title:'文章',
     describe:'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
     eye:1,
     good:2,
     discuss2e:2,
-    switchInfo:true,
     userInfo:{
       id:20,
       name:'作者',
@@ -71,57 +68,85 @@ const navList=ref<tabItemType[]>([{
     }
   },{
     id:1,
-    name:'作者',
-    time:'1天',
     tab:"前端",
     title:'文章',
     describe:'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
     eye:1,
     good:2,
     discuss2e:2,
-    switchInfo:true,
+        userInfo:{
+      id:20,
+      name:'作者',
+      avatar:'@/assets/logo.png',
+      followNum:1,
+      wasFollowNum:30,
+      introduce:'懒人',
+      fwStatus:false
+
+    }
   },{
     id:2,
-    name:'作者',
-    time:'1天',
     tab:"前端",
     title:'文章',
     describe:'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
     eye:1,
     good:2,
-    discuss2e:2
+    discuss2e:2,
+    userInfo:{
+      id:20,
+      name:'作者',
+      avatar:'@/assets/logo.png',
+      followNum:1,
+      wasFollowNum:30,
+      introduce:'懒人',
+      fwStatus:false
+    }
   },
   {
     id:6,
-    name:'作者',
-    time:'1天',
     tab:"前端",
     title:'文章',
     describe:'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
     eye:1,
     good:2,
-    discuss2e:2
+    discuss2e:2,
+    userInfo:{
+      id:20,
+      name:'作者',
+      avatar:'@/assets/logo.png',
+      followNum:1,
+      wasFollowNum:30,
+      introduce:'懒人',
+      fwStatus:false
+
+    }
   },{
     id:2,
-    name:'作者',
-    time:'1天',
     tab:"前端",
     title:'文章',
     describe:'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
     eye:1,
     good:2,
-    discuss2e:2
+    discuss2e:2,
+    userInfo:{
+      id:20,
+      name:'作者',
+      avatar:'@/assets/logo.png',
+      followNum:1,
+      wasFollowNum:30,
+      introduce:'懒人',
+      fwStatus:false
+
+    }
   },
   {
     id:6,
-    name:'作者',
-    time:'1天',
     tab:"前端",
     title:'文章',
     describe:'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
     eye:1,
     good:2,
-    discuss2e:2
+    discuss2e:2,
   }])
   
 const handleClick = (tab: string, event: Event) => {

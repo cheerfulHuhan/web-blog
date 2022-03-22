@@ -5,14 +5,14 @@ import { getToken, removeToken, setToken } from '@/utils/cookies'
 export const userInfo = defineStore({
   id: 'todo',
   state: () => ({ 
-    id:2,
+    id:2,     
     token:getToken() ||'',
-    avatar:require('@/assets/logo.png'),
+    avatar:require('@/assets/logo.png'),//头像
     name:'石志康小jb',
-    roles:[],
-    introduce:'',
-    interest:[],
-    emil:''
+    roles:[], //不管这是什么返回给我 ['admin']
+    introduce:'',    //个性签名
+    interest:[],   //兴趣
+    emil:''    //邮箱
  } as userType
  ),
  actions:{

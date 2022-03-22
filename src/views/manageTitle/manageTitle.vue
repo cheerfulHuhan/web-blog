@@ -61,15 +61,12 @@ import {TitleItemType,manageTitleStatus} from './TitleItem/types/index'
 import {Expand} from '@element-plus/icons-vue'
   const titleList=ref<TitleItemType[]>([{
     id:4,
-    name:'作者',
-    time:'1天',
-    tab:['前端',"node"],
+    tab:'前端',
     title:'文章',
     describe:'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
     eye:1,
     good:2,
     discuss2e:2,
-    switchInfo:true,
     userInfo:{
       id:20,
       name:'作者',
@@ -77,62 +74,8 @@ import {Expand} from '@element-plus/icons-vue'
       followNum:1,
       wasFollowNum:30,
       introduce:'懒人',
-      fwStatus:false
 
     }
-  },{
-    id:1,
-    name:'作者',
-    time:'1天',
-    tab:['前端',"node"],
-    title:'文章',
-    describe:'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
-    eye:1,
-    good:2,
-    discuss2e:2,
-    switchInfo:true,
-  },{
-    id:2,
-    name:'作者',
-    time:'1天',
-    tab:['前端',"node"],
-    title:'文章',
-    describe:'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
-    eye:1,
-    good:2,
-    discuss2e:2
-  },
-  {
-    id:6,
-    name:'作者',
-    time:'1天',
-    tab:['前端',"node"],
-    title:'文章',
-    describe:'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
-    eye:1,
-    good:2,
-    discuss2e:2
-  },{
-    id:2,
-    name:'作者',
-    time:'1天',
-    tab:['前端',"node"],
-    title:'文章',
-    describe:'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
-    eye:1,
-    good:2,
-    discuss2e:2
-  },
-  {
-    id:6,
-    name:'作者',
-    time:'1天',
-    tab:['前端',"node"],
-    title:'文章',
-    describe:'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
-    eye:1,
-    good:2,
-    discuss2e:2
   }])
 const activeName = ref('title')
 

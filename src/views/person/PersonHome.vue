@@ -1,6 +1,7 @@
 <template>
   <div class="person-content">
     <PersonInfo
+      v-if="user.id!==titleList[0].userInfo?.id"
       :userInfo="titleList[0].userInfo" 
       @change-fw-status="changeFwStatus" />
     <el-tabs
@@ -26,7 +27,7 @@
       <el-tab-pane name="wasFollow">
         <template #label>
           <span class="custom-tab-label">
-            <span>关注者</span><span>&nbsp;&nbsp;(2)</span>
+            <span>粉丝</span><span>&nbsp;&nbsp;(2)</span>
           </span>
         </template>
         <UserInfoItem :userInfoList="userInfoList" />
@@ -41,12 +42,12 @@ import { onMounted, ref } from 'vue'
 import {useRoute} from 'vue-router'
 import UserInfoItem from './components/UserInfoItem.vue'
 import {TitleItemType,userInfoType} from '../../components/TitleItem/types';
+import { userInfo } from '@/stores/user';
+const user=userInfo()
 const activeName = ref<string|string[]>('title')
 const route=useRoute()
   const titleList=ref<TitleItemType[]>([{
     id:4,
-    name:'作者',
-    time:'1天',
     tab:'前端',
     title:'文章',
     describe:'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
@@ -64,61 +65,91 @@ const route=useRoute()
     }
   },{
     id:1,
-    name:'作者',
-    time:'1天',
     tab:'前端',
     title:'文章',
     describe:'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
     eye:1,
     good:2,
     discuss2e:2, 
-    switchInfo:false,
+        userInfo:{
+      id:20,
+      name:'作者',
+      avatar:'@/assets/logo.png',
+      followNum:1,
+      wasFollowNum:30,
+      introduce:'懒人',
+      fwStatus:false
+    }
   },{
     id:2,
-    name:'作者',
-    time:'1天',
     tab:'前端',
     title:'文章',
     describe:'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
     eye:1,
     good:2,
-    switchInfo:false,
-    discuss2e:2
+    discuss2e:2,
+        userInfo:{
+      id:20,
+      name:'作者',
+      avatar:'@/assets/logo.png',
+      followNum:1,
+      wasFollowNum:30,
+      introduce:'懒人',
+      fwStatus:false
+    }
+  },
+  {
+    id:6,    
+    tab:'前端',
+    title:'文章',
+    describe:'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
+    eye:1,
+    good:2,
+    discuss2e:2,
+        userInfo:{
+      id:20,
+      name:'作者',
+      avatar:'@/assets/logo.png',
+      followNum:1,
+      wasFollowNum:30,
+      introduce:'懒人',
+      fwStatus:false
+    }
+  },{
+    id:2,
+    tab:'前端',
+    title:'文章',
+    describe:'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
+    eye:1,
+    good:2,
+    discuss2e:2,
+        userInfo:{
+      id:20,
+      name:'作者',
+      avatar:'@/assets/logo.png',
+      followNum:1,
+      wasFollowNum:30,
+      introduce:'懒人',
+      fwStatus:false
+    }
   },
   {
     id:6,
-    name:'作者',
-    time:'1天',
-    tab:'前端',
-    title:'文章',
-    describe:'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
-    eye:1,
-    good:2,
-     switchInfo:false,
-    discuss2e:2
-  },{
-    id:2,
-    name:'作者',
-    time:'1天',
-    tab:'前端',
-    title:'文章',
-    describe:'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
-    eye:1,
-    good:2,
-     switchInfo:false,
-    discuss2e:2
-  },
-  {
-    id:6,
-    name:'作者111',
-    time:'1天',
     tab:'前端',
     title:'文章',
     describe:'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
     eye:1,
     good:2,
-     switchInfo:false,
-    discuss2e:2
+    discuss2e:2,
+        userInfo:{
+      id:20,
+      name:'作者',
+      avatar:'@/assets/logo.png',
+      followNum:1,
+      wasFollowNum:30,
+      introduce:'懒人',
+      fwStatus:false
+    }
   }])
 const userInfoList=ref<userInfoType[]>([
   {id:5,name:'hahah',avatar:'@/assets/logo.png',introduce:'sssssss',fwStatus:true},

@@ -3,14 +3,14 @@
     v-for="item in titleList"
     :key="item.id"
     class="title-content" @click="viewTitle(item.id)">
-    <div v-if="item.switchInfo" class="head">
+    <div v-if="item?.userInfo?.id!==user.id" class="head">
       <el-popover
         placement="top-start"
         :width="300"
         trigger="hover"
       >
         <template #reference>
-          <span @click.stop="viewUser(item.id,'title')">{{ item.name }}&nbsp;&nbsp;&nbsp;|</span>
+          <span @click.stop="viewUser(item.id,'title')">{{ item.userInfo?.name }}&nbsp;&nbsp;&nbsp;|</span>
         </template>
         <div class="user-content">
           <div class="header">
@@ -26,7 +26,7 @@
               <p>0</p>
             </div>
             <div style="margin-left:20px;">
-              <p>关注者</p>
+              <p>粉丝</p>
               <p>0</p>
             </div>
             <el-button style="margin: 20px auto ;">
@@ -35,7 +35,6 @@
           </div>
         </div>
       </el-popover>
-      <span>{{ item.time }}&nbsp;&nbsp;&nbsp;|</span>
       <span>{{ item.tab }}</span>
     </div>
     <div class="title-main">
@@ -46,7 +45,7 @@
           {{ item.describe }}
         </p>
         <p class="operate">
-          <span><svg-icon name="eye" />   {{ item.eye }}</span><span><svg-icon name="good" />   {{ item.good }}</span><span><svg-icon name="discuss2e" />   {{ item.discuss2e }}</span>
+          <span><svg-icon name="eye" />   {{ item.eye }}</span><span v-if="item?.userInfo?.id!==user.id"><svg-icon name="good" />   {{ item.good }}</span><span><svg-icon name="discuss2e" />   {{ item.discuss2e }}</span>
         </p> 
       </div>
       <img v-if="item.img" class="imge" :src="item.img" alt="">
@@ -57,6 +56,8 @@
 import { computed, PropType } from 'vue';
 import {TitleItemType} from "../TitleItem/types"
 import {useViewTitle} from '@/hooks/useViewTitle'
+import {userInfo} from '@/stores/user'
+const user=userInfo()
 const {viewTitle} =useViewTitle()
   const props=defineProps({
     titleList:{
@@ -103,6 +104,9 @@ const {viewTitle} =useViewTitle()
         padding: 5px;
         align-items: center;
         font-size: 14px;
+        .svg-icon{
+          font-size: 25px;
+        }
         }
       }
     }
