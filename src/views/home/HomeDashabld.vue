@@ -52,10 +52,11 @@ const navList=ref<tabItemType[]>([{
     id:4,
     tab:"前端",
     title:'文章',
-    describe:'ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
+    describe:'sssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
     eye:1,
     good:2,
     discuss2e:2,
+    img:'https://img1.baidu.com/it/u=1407750889,3441968730&fm=253&fmt=auto&app=120&f=JPEG?w=1200&h=799',
     userInfo:{
       id:20,
       name:'作者',

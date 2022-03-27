@@ -13,7 +13,7 @@ export interface TitleItemType{
   id:number
   tab?:string //属于前端还是后端还是。。。
   title:string  //文章类型
-  describe:string //文章藐视
+  describe:string //文章描述
   img?:string //封面
   eye:number //查看次数
   good:number //收藏次数

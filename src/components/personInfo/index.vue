@@ -57,6 +57,7 @@ import { userInfoType } from '../TitleItem/types';
   .person{
     display: flex;
     width: 100%;
+    border-bottom: 1px solid #e4e7ed;
     .avatar{
       height: 100px;
       width: 100px;

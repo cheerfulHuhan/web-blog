@@ -38,7 +38,7 @@
       <span>{{ item.tab }}</span>
     </div>
     <div class="title-main">
-      <div class="describe">
+      <div class="describe" :class="{isImage: item.img}">
         <h3>{{ item.title }}</h3>
         <p class="describe-text"
         >
@@ -89,7 +89,6 @@ const {viewTitle} =useViewTitle()
     height: 120px;
     width:100%;
     .describe{
-      flex: 3;
       max-width: 100%;
       .describe-text{
         overflow: hidden;
@@ -110,8 +109,11 @@ const {viewTitle} =useViewTitle()
         }
       }
     }
+    .isImage{
+      width: calc(100% - 230px);
+    }
     .imge{
-      flex:1;
+      width: 200px;
       height: 100%;
       background-size: cover;
       background-repeat: no-repeat;
