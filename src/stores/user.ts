@@ -59,7 +59,20 @@ export const userInfo = defineStore({
     this.$patch({
       id:id
     })
-  },loginOut(){
+  },
+  setUserInfo(userInfo:{id:number,token:string,avatar:string,name:string,roles:string[],introduce:string,interest:string[],emil:string}){
+    this.$patch({
+      id:userInfo.id,
+      token:userInfo.token,
+      avatar:require(userInfo.avatar),
+      name:userInfo.name,
+      roles:userInfo.roles,
+      interest:userInfo.interest,
+      emil:userInfo.emil,
+      introduce:userInfo.introduce
+    })
+  }
+  ,loginOut(){
     this.$patch({
       id:'',
       name:'',
@@ -71,12 +84,10 @@ export const userInfo = defineStore({
       emil:'',
     })
   },
-  login( userInfo: { username: string, password: string }) {
-    let { username} = userInfo
-    const {password }=userInfo
-     username = username.trim()
-     setToken("4687978798")
-     this.setToken('4687978798')
+  async login( userInfo: { username: string, password: string ,rememberMe:boolean,captcha:string}) {
+    const data=await accountLogin(userInfo) as any
+     this.setUserInfo(data)
+     this.setToken(data.token)
   //  return new Promise((resolve, reject) => {
     //   accountLogin({ username, password })
        //  .then((res: any) => {

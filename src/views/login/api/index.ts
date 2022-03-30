@@ -3,8 +3,6 @@ import { request } from '@/utils/service'
 interface IUserRequestData {
   username: string
   password: string
-  rememberMe:boolean
-  captcha:string
 }
 
 /** 登录，返回 token */
@@ -15,10 +13,10 @@ export function accountLogin(data: IUserRequestData) {
     data
   })
 }
-/** 获取用户详情 */
-export function userInfoRequest() {
+//获取验证码
+export function getCode(){
   return request({
-    url: 'users/info',
-    method: 'post'
+    url:'/api/v1/captcha',
+    method:'get',
   })
 }

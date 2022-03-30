@@ -56,6 +56,7 @@
   import { ElMessage } from 'element-plus'
   import {userInfo} from '@/stores/user'
   import { useRouter } from 'vue-router'
+  import {getCode,accountLogin} from './api/index'
   export default defineComponent({
     setup() {
       // 容器
@@ -133,6 +134,34 @@
         pass: [{ required: true, message: '请输入密码', trigger: 'blur' }],
         code: [{ required: true, message: '请输入验证码', trigger: 'blur' }]
       }
+      // 提交表单
+      const submitForm = () => {
+        const form: any = unref(formRef)
+        if (!form) return
+        form.validate(async(valid: any) => {
+          if (valid) {
+          await  submitHandle()
+          router.push('/Home')
+          } else {
+            ElMessage.warning({
+              message: '随便输入用户名、密码、验证码即可登陆',
+              type: 'warning'
+            })
+          }
+        })
+      }
+
+      // 提交请求
+      const submitHandle = async() => {
+        const params = {
+        username:formField.user.trim(),
+        password:formField.pass,
+        rememberMe:Boolean(formField.whetherAutoLogin),
+        captcha:formField.code
+        }
+        storeUser.login(params)
+        // 提交登陆请求
+      }
 
       onMounted(() => {
         container = document.getElementById('login-three-container')
@@ -170,6 +199,7 @@
         // 控制器必须放在renderer函数后面
         initOrbitControls()
         animate()
+        getValidateCodeHandle()
         // initGUI()
         // const axesHelper = new THREE.AxesHelper(2000)
         // scene.add(axesHelper)
@@ -505,40 +535,8 @@
       // 获取验证码
       const getValidateCodeHandle = async() => {
         // 请求获取验证码 并设置验证码的图片以及验证码token
-        state.codeSrc = ''
-        state.codetoken = ''
-      }
-
-      // 提交表单
-      const submitForm = () => {
-        const form: any = unref(formRef)
-        if (!form) return
-        form.validate(async(valid: any) => {
-          if (valid) {
-            storeUser.setId('ssdfsf')
-           storeUser.setAvatar(require('@/assets/logo.png'))
-           storeUser.setName('石志康小jb')
-          await  submitHandle()
-
-          router.push('/Home')
-          } else {
-            ElMessage.warning({
-              message: '随便输入用户名、密码、验证码即可登陆',
-              type: 'warning'
-            })
-          }
-        })
-      }
-
-      // 提交请求
-      const submitHandle = async() => {
-        const params = {
-          password: formField.pass,
-          username: formField.user,
-          verifyCode: formField.code
-        }
-        storeUser.login(params)
-        // 提交登陆请求
+        const {src}=await getCode() as any
+        state.codeSrc=src
       }
 
       const refsState = toRefs(state)
